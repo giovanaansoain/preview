@@ -5,15 +5,15 @@
         line-height: 30px;
         color: #3d3d3d;
         text-align: left;
-        margin-bottom: 120px;
+        margin-bottom: 60px;
 
         img{
             width: 100%;
         }
 
-        @media screen and (min-width: $screen-md) and (max-width: $screen-md-max){
+        /*@media screen and (min-width: $screen-md) and (max-width: $screen-md-max){
             margin-bottom: 60px;
-        }
+        }*/
 
         @media screen and (max-width: $screen-sm-max){
             margin-bottom: 40px;

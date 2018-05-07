@@ -1,0 +1,228 @@
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+  min-height: calc(100vh - 60px);
+
+  @media screen and (max-width: $screen-sm-max){
+    min-height: calc(100vh - 40px);
+  }
+}
+
+::-moz-selection {
+  background: $selection;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: $selection;
+  color: white;
+  text-shadow: none;
+}
+
+.no-scroll{
+  overflow-y: hidden;
+  height: 100%;
+  height: 100vh;
+}
+
+.container {
+  width: 1175px;
+  margin: 0 auto;
+
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max){
+    width: 80%;
+  }
+
+  @media only screen and (max-width: $screen-sm-max){
+    width: 90%;
+  }
+}
+
+section{
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  @media screen and (max-width: $screen-md-max){
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+section.banner{
+  padding: 0;
+}
+
+/*text*/
+.section-title{
+  font-family: $montserrat;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: $color-title;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max){
+    font-size: 35px;
+  }
+
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max){
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: $screen-xs-max){
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto 15px auto;
+  }
+}
+
+.section-subtitle{
+  font-family: $garamond;
+  font-size: 20px;
+  line-height: 1.75;
+  text-align: center;
+  color: $color-subtitle;
+  margin: 0 auto 50px auto;
+
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max){
+      font-size: 16px;
+  }
+
+  @media only screen and (max-width: $screen-sm-max){
+    font-size: 15px;
+  }
+
+  @media screen and (min-width: $screen-sm){
+    width: 635px;
+  }
+
+  @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max){
+    width: 62%;
+  }
+
+  @media screen and (max-width: $screen-xs-max){
+    width: 85%;
+  }
+}
+
+.paragraph{
+  font-family: $garamond;
+  font-size: 18px;
+  line-height: 1.88;
+}
+
+/*buttons*/
+[class^="btn-"]{
+  display: inline-block;
+  font-family: $montserrat;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 4.2px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-white;
+  width: 205px;
+  height: 45px;
+  padding: 14px 0;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+
+  @media screen and (max-width: $screen-md-max){
+    font-size: 13px;
+    letter-spacing: 2.8px;
+    width: 160px;
+    height: 40px;
+    padding: 12px 0;
+  }
+}
+
+.btn-primary{
+  background-color: $color-red;
+}
+
+.btn-secondary{
+  background-color: $color-black;
+  opacity: 0.8;
+}
+
+.btn-cta{
+  background: #df4236;
+  box-shadow: 2px 10px 9px #b5241a;
+  transition: 0.3s;
+
+  &:hover{
+    margin-top: 2px;
+    box-shadow: 2px 3px 9px #b5241a;
+    transition: 0.3s;
+  }
+}
+
+.wrapper-btn-scroll{
+  text-align: center;
+
+  @media screen and (max-width: $screen-xs-max){
+    display: none;
+  }
+
+  p{
+    font-family: $montserrat;
+    font-size: 12px;
+    line-height: 7.5;
+    letter-spacing: 4.8px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-white;
+
+    @media screen and (max-width: $screen-md-max){
+      font-size: 11px;
+      line-height: 4;
+      letter-spacing: 4px;
+    }
+  }
+}
+
+.icon-scroll{
+  @include ir('../icons/mouse.svg', cover);
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  filter: invert(100%);
+}
+
+/*icon social media*/
+.item-social-media>a{
+    display: block;
+    @include ti();
+    width: 17px;
+    height: 17px;
+    filter: invert(100%);
+
+    @media screen and (max-width: $screen-xs-max){
+      width: 25px;
+      height: 25px;
+    }
+}
+
+.i-fb{
+  @include bg('../icons/facebook.svg', cover);
+}
+
+.i-tw{
+  @include bg('../icons/twitter.svg', cover);
+}
+
+.i-in{
+  @include bg('../icons/linkedin.svg', cover);
+}
+
+.i-ins{
+  @include bg('../icons/instagram.svg', cover);
+}

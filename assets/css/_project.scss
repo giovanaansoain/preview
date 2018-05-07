@@ -1,0 +1,78 @@
+.project-single{
+    p{
+        font-family: $garamond;
+        font-size: 18px;
+        line-height: 30px;
+        color: #3d3d3d;
+        text-align: left;
+        margin-bottom: 120px;
+
+        img{
+            width: 100%;
+        }
+
+        @media screen and (min-width: $screen-md) and (max-width: $screen-md-max){
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: $screen-sm-max){
+            margin-bottom: 40px;
+        }
+    }
+
+    p:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.project-info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    @media screen and (max-width: $screen-xs-max){
+        flex-wrap: wrap;
+    }
+}
+
+.project-info-item{
+    max-width: 30%;
+
+    p{
+        text-align: center; 
+        text-transform: capitalize; 
+    }
+
+    @media screen and (max-width: $screen-xs-max){
+        width: 100%;
+        max-width: initial;
+    }
+}
+
+.project-info-item + .project-info-item{
+    @media screen and (max-width: $screen-xs-max){
+        margin-top: 40px;
+    }
+}
+
+.project-info-title{
+    font-family: $montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    color: #a7a7a7;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+
+    @media screen and (max-width: $screen-xs-max){
+        margin-bottom: 20px;
+    }
+
+}
+
+.project-info-text{
+    font-family: $garamond;
+    font-size: 18px;
+    line-height: 30px;
+    color: #3d3d3d;
+}

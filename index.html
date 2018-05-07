@@ -1,0 +1,241 @@
+---
+title: Home
+layout: default
+---
+
+<main class="home">
+
+	<!-- banner -->
+	<section class="banner">
+		<img class="banner-img" src="{{ site.baseurl }}upload/home-banner.jpg" alt="banner">
+		<div class="banner-wrapper-info">
+			<div class="banner-box-center">
+				<h2 class="banner-title">Facilitação de inovação</h2>
+				<p class="banner-subtitle">Juntos, resolvemos desafios de forma criativa e inovadora</p>
+				<div class="row-buttons">
+					<a href="{{ site.baseurl }}about" class="btn-secondary">Sobre mim</a>
+					<a href="{{ site.baseurl }}contact" class="btn-primary">Fale Comigo</a>
+				</div>
+			</div>
+			<div class="banner-box-bottom">
+				<a href="mailto:ola@giovana.cc">{{ site.email }}</a>
+				<div class="wrapper-btn-scroll">
+					<p>Role para baixo</p>
+					<i class="icon-scroll">scroll</i>
+				</div>
+				<a href="tel:+5511976757107">+55 11 97675 7107</a></li>
+			</div>
+		</div>
+	</section>
+
+	<!-- services -->
+	<section id="services" class="sample-services">
+		<div class="services-content container">
+			<div class="box-services">
+				<img class="services-icon" src="{{ site.baseurl }}assets/icons/assessoria.svg" alt="">
+				<div class="services-info">
+					<h3 class="services-title">Facilitação</h3>
+					<p class="services-description">para tornar a criação da inovação mais tranquila e alinhada com os objetivos da empresa e colaboradores.</p>	
+				</div>
+			</div>
+			<div class="box-services">
+				<img class="services-icon" src="{{ site.baseurl }}assets/icons/agilidade.svg" alt="">
+				<div class="services-info">
+					<h3 class="services-title">Agilidade</h3>
+					<p class="services-description">para criar e aprender é indispensável no mundo atual.</p>	
+				</div>
+			</div>
+			<div class="box-services">
+				<img class="services-icon" src="{{ site.baseurl }}assets/icons/inovacao.svg" alt="">
+				<div class="services-info">
+					<h3 class="services-title">Inovação</h3>
+					<p class="services-description">na busca pela evolução. Usamos ferramentas e processos atualizados que trazem resultados alinhados com as necessidades do mercado atual.</p>	
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- projects -->
+	<section id="portfolio" class="sample-best-projects">
+		<h4 class="section-title">Minhas melhores colaborações</h4>
+		<p class="section-subtitle">Veja os projetos mais legais que colaborei.</p>
+
+		<ul class="list-filter-projects">
+			<li id="todos-item" class="item-filter-projects active"><span>Todos</span></li>
+			{% assign rawtags = "" %}
+			{% for post in site.projects %}
+				{% assign ttags = post.tags | join:'|' | append:'|' %}
+				{% assign rawtags = rawtags | append:ttags %}
+			{% endfor %}
+			{% assign rawtags = rawtags | split:'|' | sort %}
+
+			{% assign site.tags = "" %}
+			{% for tag in rawtags %}
+				{% if tag != "" %}
+					{% if tags == "" %}
+						{% assign tags = tag | split:'|' %}
+					{% endif %}
+					{% unless tags contains tag %}
+						{% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+					{% endunless %}
+				{% endif %}
+			{% endfor %}
+
+			{% for tag in tags %}
+				{% if tag != "" %}
+					{% assign t = tag | first %}
+					{% assign posts = tag | last %}
+					<li id="{{ tag }}-item" class="item-filter-projects"><span>{{ tag }}</span></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+		<div id="todos-container" class="wrapper-projects">
+		{% assign projects = site.projects | sort: 'order' %}
+		{% for project in projects %}
+			{% assign isbig = forloop.index | modulo:9 %}
+			{% assign isbig2 = forloop.index | modulo:11 %}
+			<a href="{{ site.baseurl }}{{ project.permalink }}" class="
+				projetos-loop 
+				projeto-all-{{forloop.index}} 
+				{% if forloop.index > 6 %}hidden{% endif %} 
+				{% if forloop.index == 1 or isbig == 0 or isbig2 == 0 %}big{% endif %}
+			">
+				<div class="projects">
+					<img src="{{ site.baseurl }}upload/{{ project.image }}" alt="">
+					<div class="wrapper-title-projects">
+						<p class="title-project">{{ project.title }}</p>
+					</div>
+				</div>
+			</a>
+    	{% endfor %}
+		</div>
+		{% for tag in tags %}
+			{% if tag != "" %}
+				<div id="{{ tag }}-container" class="wrapper-projects hidden">
+				{% assign projects = site.projects | sort: 'order' | where: 'tags',tag %}
+				{% for project in projects %}
+				{% assign isbig = forloop.index | modulo:9 %}
+				{% assign isbig2 = forloop.index | modulo:11 %}
+					<a href="{{ site.baseurl }}{{ project.permalink }}" class="
+						projetos-loop 
+						projeto-{{tag}}-{{forloop.index}} 
+						{% if forloop.index > 6 %}hidden{% endif %} 
+						{% if forloop.index == 1 or isbig == 0 or isbig2 == 0 %}big{% endif %}
+					">
+						<div class="projects">
+							<img src="{{ site.baseurl }}upload/{{ project.image }}" alt="">
+							<div class="wrapper-title-projects">
+								<p class="title-project">{{ project.title }}</p>
+							</div>
+						</div>
+					</a>
+				{% endfor %}
+				</div>
+			{% endif %}
+		{% endfor %}
+		<button class="btn-primary item-vermais-projects">Ver mais</button>
+	</section>
+
+	<!-- cooperation -->
+	<section id="clients" class="sample-cooperation container">
+		<h4 class="section-title">Com quem colaborei</h4>
+		<p class="section-subtitle">Pessoas e empresas incríveis com quem colaborei (trabalhei junto).</p>
+		<div class="wrapper-cooperation-projects">
+			<div class="cooperation-projects">
+				<img class="cooperation-img" src="{{ site.baseurl }}assets/img/sebrae-logo.png" alt="">
+			</div>
+
+			<div class="cooperation-projects">
+				<img class="cooperation-img" src="{{ site.baseurl }}assets/img/bid-logo.png" alt="">
+			</div>
+		</div>
+	</section>
+
+	<!-- testimony -->
+	<section id="testimonials" class="testimonials">
+		<h4 class="section-title">O que eles acharam</h4>
+		<p class="section-subtitle">Saiba o que eles acharam da minha colaboração</p>
+		
+		<!-- slider -->
+		<div class="slider-testimonials container">
+			<div class="box-slider">
+				<div class="box-content">
+					<img src="{{ site.baseurl }}assets/icons/comma.svg" alt="" class="icon-commas">
+					<div class="wrapper-text-slider">
+						<p class="text-slider">
+							A provocação de Giovana veio no momento certo pra mim. Diversos temas navegavam na minha cabeça sem me levar a lugar algum; a não ser àquele sentimento de desconforto. “Calma, Claudia!”, começou Giovana: “Vamos falar sobre essa dor!”. Esse foi nosso ponto de partida. Baita desafio! Fui andando cada vez mais segura neste processo de criação. Hoje, já caminho muito bem sozinha, ou melhor, caminho com outros colegas de profissão que compraram a ideia que construímos juntas: eu e Giovana. Ah! Essa geração de provocadores! Maravilhosa!
+						</p>
+						<div class="info-text">
+							<p>
+								<span class="info-name">Claúdia Araújo</span>
+								<span class="space-text">—</span>
+								<span class="info-role">Diretors Seven Idiomas Aclimação</span>
+							</p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- call to action -->
+	<section class="call-to-action">
+		<h4 class="title-cta">Prontos para inovar?</h4>
+		<a href="{{ site.baseurl }}contact" class="btn-cta">Vamos falar</a>
+	</section>
+
+	<!-- blog -->
+	<section id="blog" class="blog">
+		<h4 class="section-title">Novidades do blog</h4>
+		<p class="section-subtitle">No blog eu escrevo sobre design, inovação, empreendedorismo e muito mais. Veja as novidades!</p>
+
+		<div class="container">
+			<div class="wrapper-posts">
+				<!-- First Card -->
+				<div class="post-card">
+					<a href="https://medium.com/processocriativo/o-que-aprendi-com-a-minha-primeira-empresa-2b866ae75b22" target="_blank">
+						<img src="{{ site.baseurl }}upload/post1.jpeg" alt="" class="img-post">
+						<div class="post-info">
+							<p class="post-category">Empreendedorismo</p>
+							<p class="post-title">O que aprendi com a minha primeira empresa</p>
+							<div class="post-about">
+								<p>por <span class="post-author">Giovana Ansoain</span></p>
+								<p class="post-date">24 Abr.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<!-- Second Card -->
+				<div class="post-card">
+					<a href="https://medium.com/processocriativo/4-dicas-para-vencer-o-medo-de-criar-cda9a6fbcf6a" target="_blank">
+						<img src="{{ site.baseurl }}upload/post2.jpeg" alt="" class="img-post">
+						<div class="post-info">
+							<p class="post-category">Criatividade</p>
+							<p class="post-title">4 dicas para vencer o medo de criar</p>
+							<div class="post-about">
+								<p>por <span class="post-author">Giovana Ansoain</span></p>
+								<p class="post-date">01 Nov.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<!-- Third Card -->
+				<div class="post-card">
+					<a href="https://medium.com/processocriativo/tive-uma-ideia-de-negócio-e-agora-ae098608b22c" target="_blank">
+						<img src="{{ site.baseurl }}upload/post3.jpeg" alt="" class="img-post">
+						<div class="post-info">
+							<p class="post-category">Empreendedorismo</p>
+							<p class="post-title">Tive uma ideia de negócio. E agora?</p>
+							<div class="post-about">
+								<p>por <span class="post-author">Giovana Ansoain</span></p>
+								<p class="post-date">16 Nov.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

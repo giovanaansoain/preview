@@ -1,0 +1,34 @@
+---
+title: Giovana Ansoain
+timezone: UTC
+collections:
+  pages:
+    title: Pages
+    output: true
+  posts:
+    title: Posts
+    output: true
+  projects:
+    title: Projects
+    output: true
+  upload:
+    title: Upload
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+email: ola@giovana.cc
+description: Giovana Ansoain Portfolio. Buscamos soluções criativas com processo de
+  design para criar inovação.
+meta_keywords: assessoria, agilidade, inovacao
+baseurl: ''
+url: https://dutra21.github.io/giovanaansoain/
+markdown: kramdown
+plugins:
+- jekyll-feed
+sass:
+  sass_dir: "/assets/css"
+  style: compressed
+exclude:
+- Gemfile
+- Gemfile.lock

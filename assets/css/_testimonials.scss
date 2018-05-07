@@ -1,0 +1,90 @@
+.slider-testimonials{
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+	@media screen and (min-width: $screen-md){
+        margin-top: 90px;
+    }
+
+    @media screen and (max-width: $screen-sm-max){
+        margin-top: 0px;
+    }
+}
+
+.box-slider{
+	margin: 0 20px;
+}
+
+.box-content{
+	width: 400px;
+	margin: 0 auto;
+
+	@media screen and (max-width: $screen-sm-max) {
+		width: 80%;
+	}
+
+	img{
+		width: 40px;
+		height: 40px;
+
+		@media only screen and (max-width: $screen-sm-max){
+			width: 30px;
+			height: 30px;
+		}
+	}
+}
+
+.wrapper-text-slider{
+	margin-left: 40px;
+	color: $color-title;
+
+	@media only screen and (max-width: $screen-sm-max){
+		margin-left: 30px;
+	}
+}
+
+.text-slider{
+	font-family: $garamond;
+	font-size: 16px;
+	line-height: 1.6;
+
+	@media only screen and (max-width: $screen-sm-max){
+		font-size: 14px;
+	}
+}
+
+.info-text{
+	margin-top: 20px;
+	width: 100%;
+
+	p{
+		display: flex;
+    	flex-wrap: wrap;
+	}
+}
+
+span.space-text{
+	margin: 0 5px;
+	font-family: $garamond;
+	font-size: 13px;
+	display: flex;
+	align-items: center;
+}
+
+.info-name{
+	font-family: $montserrat;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 2.29;
+	letter-spacing: 2.8px;
+	text-transform: uppercase;
+}
+
+.info-role{
+	font-family: $garamond;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: italic;
+	line-height: 2;
+}
